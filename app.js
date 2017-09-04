@@ -34,10 +34,10 @@ const fallingKnife = async () => {
     	 - the 'exchange coin' is in the 'shapeshift coin' list
     	 - update the best coin to shapeshiftCoin
     	*/	   
-    	const currentChange = (Number(currentData.result[i].Last) - Number(previousData.result[i].Last)) / Number(previousData.result[i].Last)
-		const baseCoin = currentData.result[i].MarketName.split('-')[0]
-		const exchangeCoin = currentData.result[i].MarketName.split('-')[1]
-		const shapeShiftCoins = ['1ST', 'ANT', 'REP', 'BAT', 'BNT', 'CVC', 'DGD', 'DNT', 'EOS', 'ETH', 'FUN', 'GNO', 'GNT', 'MTL', 'OMG', 'QTUM', 'SNT', 'WINGS', 'ZRX']
+    	let currentChange = (Number(currentData.result[i].Last) - Number(previousData.result[i].Last)) / Number(previousData.result[i].Last)
+		let baseCoin = currentData.result[i].MarketName.split('-')[0]
+		let exchangeCoin = currentData.result[i].MarketName.split('-')[1]
+		let shapeShiftCoins = ['1ST', 'ANT', 'REP', 'BAT', 'BNT', 'CVC', 'DGD', 'DNT', 'EOS', 'ETH', 'FUN', 'GNO', 'GNT', 'MTL', 'OMG', 'QTUM', 'SNT', 'WINGS', 'ZRX']
     	
     	// this stores the greatest change
     	if (currentChange < greatestChange && 
@@ -56,15 +56,14 @@ const fallingKnife = async () => {
 
     }// for loop
 
-    if (shapeshiftCoin.trade === true){
-    	console.log(shapeshiftCoin)
-    }
+    
+    console.log(`\n\n`, shapeshiftCoin)
 
 
     // set timeout then start over again
 	setTimeout(() => {
 		fallingKnife() 
-	}, 5000);
+	}, 30 * 60 * 1000);
 
 }
 fallingKnife()
