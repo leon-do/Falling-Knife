@@ -50,10 +50,11 @@ const fallingKnife = () => {
 	    		const baseCoin = currentData[i].MarketName.split('-')[0]
 	    		const exchangeCoin = currentData[i].MarketName.split('-')[1]
 	    		//const shapeShiftCoins = ['BTC', '1ST', 'ANT', 'BAT', 'BNT', 'BCH', 'BCY', 'BLK', 'BTCD', 'BTS', 'CVC', 'CLAM', 'DASH', 'DCR', 'DGB', 'DGD', 'DNT', 'DOGE', 'EMC', 'EDG', 'EOS', 'ETH', 'ETC', 'FCT', 'FUN', 'GAME', 'GNO', 'GNT', 'GUP', 'ICN', 'KMD', 'LBC', 'LSK', 'LTC', 'MAID', 'MLN', 'MTL', 'MONA', 'MSC', 'NBT', 'NMC', 'NMR', 'NVC', 'NXT', 'OMG', 'PAY', 'POT', 'PPC', 'QTUM', 'REP', 'RDD', 'RLC', 'SC', 'SNT', 'SJCX', 'START', 'STEEM', 'SNGLS', 'SWT', 'TKN', 'TRST', 'USDT', 'VOX', 'VRC', 'VTC', 'WAVES', 'WINGS', 'XCP', 'XMR', 'XRP', 'ZEC', 'ZRX']
-	        	const shapeShiftCoins =   ['BTC', '1ST', 'ANT'    , 'BAT', 'BNT', 'BCH'                         , 'CVC'        , 'DASH', 'DCR'       , 'DGD', 'DNT'                      , 'EOS', 'ETH'       , 'FCT', 'FUN'        , 'GNO', 'GNT'.                                  , 'LTC'               , 'MTL'													 ,'OMG' 					, 'QTUM', 'REP'					   , 'SNT', 'SJCX'																						 , 'WINGS'							  , 'ZRX']
-	
+	        	//const shapeShiftCoins =   [       '1ST', 'ANT', 'BAT', 'BNT', 'BCH'                             , 'CVC'        , 'DASH', 'DCR'       , 'DGD', 'DNT'                      , 'EOS', 'ETH'       , 'FCT', 'FUN'        , 'GNO', 'GNT'                                   , 'LTC'               , 'MTL'													 ,'OMG' 					, 'QTUM', 'REP'					   , 'SNT', 'SJCX'																						 , 'WINGS'							  , 'ZRX']
+				const shapeShiftCoins = ['1ST', 'ANT', 'REP', 'BAT', 'BNT', 'CVC', 'DGD', 'DNT', 'EOS', 'ETH', 'FUN', 'GNO', 'GNT', 'MTL', 'OMG', 'QTUM', 'SNT', 'WINGS', 'ZRX']
+
 	        	if (currentChange < greatestChange && 
-	        		currentChange < -0.003 &&
+	        		currentChange < -0.001 &&
 	        		shapeShiftCoins.indexOf(exchangeCoin) != -1 &&
 	        		baseCoin === 'BTC'){
 		        		greatestChange = currentData[i]
@@ -130,7 +131,7 @@ const fallingKnife = () => {
 	    	message.coin = fs.readFileSync('coin.txt', 'utf8')
 	    	message.amount = fs.readFileSync('amount.txt', 'utf8')
 	    	
-	    	console.log(message)
+	    	console.log('\n\n', message)
 
 	    	// set timeout then start over again
 	    	setTimeout(() => {
