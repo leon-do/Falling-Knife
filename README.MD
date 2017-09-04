@@ -1,6 +1,6 @@
 # Instructions
 
-## shit is complete. will automate it 100% if profitable
+## shit is incomplete. will automate it 100% if profitable
 
 `$ touch send/config.js`
 
