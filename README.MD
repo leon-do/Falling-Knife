@@ -1,6 +1,7 @@
 # Instructions
 
 `$ node app.js`
+
 `$ touch send/config.js`
 
 edit the config file to look like:
