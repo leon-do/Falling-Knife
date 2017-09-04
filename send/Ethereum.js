@@ -5,6 +5,7 @@ const Tx = require('ethereumjs-tx');
 const Web3 = require('web3')
 
 const web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/2HSUZ74pwuqqG9FGfpCg'))
+
 // --------------------------------------
 
 const coin = 'ETH'
@@ -17,16 +18,8 @@ console.log('sendAddress:', sendAddress)
 console.log('sendPrivKey:', sendPrivKey)
 console.log('sendAmount:', sendAmount)
 console.log('shapeShiftAddress:', shapeShiftAddress)
+
 // --------------------------------------
-
-/*
-const sendAddress = '0xc70103eddcA6cDf02952365bFbcf9A4A76Cd2066'
-const sendPrivKey = 'bd31efa81ffe64275d1641fb4e1dddcdc53eaf390390a4a42e571c999e708f94'
-const shapeShiftAddress = '0x5873E7b7F909B4F76ce4B7B3338DB674F1aC3a02'
-const privateKey = new Buffer(sendPrivKey, 'hex')
-const sendAmount = 0.1
-*/
-
 
 var rawTx = {
     nonce: web3.toHex(web3.eth.getTransactionCount(sendAddress)),
