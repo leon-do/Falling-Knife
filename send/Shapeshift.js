@@ -1,3 +1,7 @@
+/*
+	input: coin1, coin2 --> some magic --> output: send coin1 to this address
+*/
+
 'use strict'
 const shapeshift = require('shapeshift.io') // https://github.com/exodusmovement/shapeshift.io
 const config = require('./config.js')

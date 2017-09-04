@@ -1,6 +1,5 @@
 # Instructions
 
-`$ node app.js`
 
 `$ touch send/config.js`
 
@@ -19,3 +18,6 @@ exports.KEYS = {
 	}
 }
 ```
+
+
+`$ node app.js`

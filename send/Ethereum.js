@@ -1,3 +1,7 @@
+/*
+  this signs the shit
+*/
+
 'use strict'
 const config = require('./config.js')
 const fs = require('fs')
