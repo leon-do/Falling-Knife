@@ -41,6 +41,7 @@ const fallingKnife = () => {
 	        	/*
 	        	 The magicical logic
 	        	 - if the current 'change' is more than the 'greatest change' and
+	        	 - current change is greater than ___
 	        	 - the base coin is BTC and
 	        	 - the 'exchange coin' is in the 'shapeshift coin' list
 	        	 - then update greatestChange
@@ -48,9 +49,11 @@ const fallingKnife = () => {
 	        	const currentChange = (Number(currentData[i].Last) - Number(previousData[i].Last)) / Number(previousData[i].Last)
 	    		const baseCoin = currentData[i].MarketName.split('-')[0]
 	    		const exchangeCoin = currentData[i].MarketName.split('-')[1]
-	    		const shapeShiftCoins = ['BTC', '1ST', 'ANT', 'BAT', 'BNT', 'BCH', 'BCY', 'BLK', 'BTCD', 'BTS', 'CVC', 'CLAM', 'DASH', 'DCR', 'DGB', 'DGD', 'DNT', 'DOGE', 'EMC', 'EDG', 'EOS', 'ETH', 'ETC', 'FCT', 'FUN', 'GAME', 'GNO', 'GNT', 'GUP', 'ICN', 'KMD', 'LBC', 'LSK', 'LTC', 'MAID', 'MLN', 'MTL', 'MONA', 'MSC', 'NBT', 'NMC', 'NMR', 'NVC', 'NXT', 'OMG', 'PAY', 'POT', 'PPC', 'QTUM', 'REP', 'RDD', 'RLC', 'SC', 'SNT', 'SJCX', 'START', 'STEEM', 'SNGLS', 'SWT', 'TKN', 'TRST', 'USDT', 'VOX', 'VRC', 'VTC', 'WAVES', 'WINGS', 'XCP', 'XMR', 'XRP', 'ZEC', 'ZRX']
-	        	
+	    		//const shapeShiftCoins = ['BTC', '1ST', 'ANT', 'BAT', 'BNT', 'BCH', 'BCY', 'BLK', 'BTCD', 'BTS', 'CVC', 'CLAM', 'DASH', 'DCR', 'DGB', 'DGD', 'DNT', 'DOGE', 'EMC', 'EDG', 'EOS', 'ETH', 'ETC', 'FCT', 'FUN', 'GAME', 'GNO', 'GNT', 'GUP', 'ICN', 'KMD', 'LBC', 'LSK', 'LTC', 'MAID', 'MLN', 'MTL', 'MONA', 'MSC', 'NBT', 'NMC', 'NMR', 'NVC', 'NXT', 'OMG', 'PAY', 'POT', 'PPC', 'QTUM', 'REP', 'RDD', 'RLC', 'SC', 'SNT', 'SJCX', 'START', 'STEEM', 'SNGLS', 'SWT', 'TKN', 'TRST', 'USDT', 'VOX', 'VRC', 'VTC', 'WAVES', 'WINGS', 'XCP', 'XMR', 'XRP', 'ZEC', 'ZRX']
+	        	const shapeShiftCoins =   ['BTC', '1ST', 'ANT'    , 'BAT', 'BNT', 'BCH'                         , 'CVC'        , 'DASH', 'DCR'       , 'DGD', 'DNT'                      , 'EOS', 'ETH'       , 'FCT', 'FUN'        , 'GNO', 'GNT'.                                  , 'LTC'               , 'MTL'													 ,'OMG' 					, 'QTUM', 'REP'					   , 'SNT', 'SJCX'																						 , 'WINGS'							  , 'ZRX']
+	
 	        	if (currentChange < greatestChange && 
+	        		currentChange < -0.003 &&
 	        		shapeShiftCoins.indexOf(exchangeCoin) != -1 &&
 	        		baseCoin === 'BTC'){
 		        		greatestChange = currentData[i]
@@ -116,7 +119,7 @@ const fallingKnife = () => {
 			fs.writeFileSync('amount.txt', recieveAmount, 'utf8')
 
 			// display message
-			return {}
+			return recieveAccount
 
 
 	    })
