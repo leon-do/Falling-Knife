@@ -3,7 +3,7 @@ const Bittrex = require('./lib/Bittrex.js')
 const fs = require('fs')
 // ===========================
 
-// stores the previous data
+// reset txt file
 let previousData = {}
 
 const fallingKnife = async () => {
@@ -29,9 +29,9 @@ const fallingKnife = async () => {
     	/*
     	 The magicical logic
     	 - if the current 'change' is more than the 'greatest change' and
-    	 - current change is greater than ___
+    	 - current change is greater than ___% and
     	 - the base coin is BTC and
-    	 - the 'exchange coin' is in the 'shapeshift coin' list
+    	 - the 'exchange coin' is in the 'shapeshift coin' list then
     	 - update the best coin to shapeshiftCoin
     	*/	   
     	let currentChange = (Number(currentData.result[i].Last) - Number(previousData.result[i].Last)) / Number(previousData.result[i].Last)
@@ -44,7 +44,7 @@ const fallingKnife = async () => {
     		currentChange < -0.001 &&
     		shapeShiftCoins.indexOf(exchangeCoin) != -1 &&
     		baseCoin === 'BTC'){
-    			// update the greatstChange
+    			// update the greatestChange
     			greatestChange = currentChange
         		// update the best coin
         		shapeshiftCoin = {
@@ -62,8 +62,8 @@ const fallingKnife = async () => {
 
     // set timeout then start over again
 	setTimeout(() => {
-		fallingKnife() 
-	}, 30 * 60 * 1000);
+		return fallingKnife() 
+	}, 15 * 60 * 1000);
 
 }
 fallingKnife()
